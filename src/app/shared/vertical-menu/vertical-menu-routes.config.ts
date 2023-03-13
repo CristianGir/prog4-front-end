@@ -56,7 +56,7 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/exercises/organizational",
     title: "Organigrama",
-    icon: "ft-mail",
+    icon: "ft-command",
     class: "",
     badge: "",
     badgeClass: "",
