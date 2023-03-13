@@ -39,6 +39,8 @@
             "styles": [
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "node_modules/prismjs/plugins/toolbar/prism-toolbar.css",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
               "src/assets/css/quill.snow.css",
               "src/assets/css/quill.bubble.css",
               "src/assets/css/animate.min.css",

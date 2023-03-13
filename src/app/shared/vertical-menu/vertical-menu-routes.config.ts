@@ -53,6 +53,16 @@ export const ROUTES: RouteInfo[] = [
     isExternalLink: false,
     submenu: [],
   },
+  {
+    path: "/exercises/organizational",
+    title: "Organigrama",
+    icon: "ft-mail",
+    class: "",
+    badge: "",
+    badgeClass: "",
+    isExternalLink: false,
+    submenu: [],
+  },
   /*
   {
     path: '', title: 'Menu Levels', icon: 'ft-align-left', class: 'has-sub', badge: '3', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,

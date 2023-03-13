@@ -1,68 +1,77 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CalculatorComponent } from './calculator/calculator.component';
-import { DataTablesComponent } from './data-tables/data-tables.component';
-import { EditorComponent } from './editor/editor.component';
-import { GalleryComponent } from './gallery/gallery.component';
-
-
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { CalculatorComponent } from "./calculator/calculator.component";
+import { DataTablesComponent } from "./data-tables/data-tables.component";
+import { EditorComponent } from "./editor/editor.component";
+import { GalleryComponent } from "./gallery/gallery.component";
+import { OrganizationalComponent } from "./organizational/organizational.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     children: [
       {
-        path: 'calculator',
+        path: "calculator",
         component: CalculatorComponent,
         data: {
-          title: 'Calculadora'
-        }
+          title: "Calculadora",
+        },
       },
-    ]
+    ],
   },
   {
-    path: '',
+    path: "",
     children: [
       {
-        path: 'data-tables',
+        path: "data-tables",
         component: DataTablesComponent,
         data: {
-          title: 'Data-Tables'
-        }
+          title: "Data-Tables",
+        },
       },
-    ]
+    ],
   },
-  
+
   {
-    path: '',
+    path: "",
     children: [
       {
-        path: 'gallery',
+        path: "gallery",
         component: GalleryComponent,
         data: {
-          title: 'Galeria'
-        }
+          title: "Galeria",
+        },
       },
-    ]
+    ],
   },
   {
-    path: '',
+    path: "",
     children: [
       {
-        path: 'editor',
+        path: "editor",
         component: EditorComponent,
         data: {
-          title: 'Editor'
-        }
+          title: "Editor",
+        },
       },
-    ]
+    ],
   },
-  
-  
+  {
+    path: "",
+    children: [
+      {
+        path: "organizational",
+        component: OrganizationalComponent,
+        data: {
+          title: "Chart",
+        },
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ExercisesRoutingModule { }
+export class ExercisesRoutingModule {}
