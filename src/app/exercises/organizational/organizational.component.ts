@@ -8,9 +8,7 @@ import { TreeNode } from "primeng/api";
 })
 export class OrganizationalComponent implements OnInit {
   data1: TreeNode[];
-
   data2: TreeNode[];
-
   selectedNode: TreeNode;
 
   constructor() {}
