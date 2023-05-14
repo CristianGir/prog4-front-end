@@ -1,0 +1,68 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css"
+/>
+<section id="ngx-datatable-basic">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Ciudades</h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <!-- ngx-datatable Basic -->
+            <ngx-datatable
+              [rows]="cities"
+              [rowHeight]="50"
+              class="bootstrap core-bootstrap"
+              [limit]="10"
+              [columnMode]="ColumnMode.force"
+              [headerHeight]="50"
+              [footerHeight]="30"
+              [scrollbarH]="false"
+            >
+              <ngx-datatable-column
+                name="ID"
+                prop="cityId"
+                [width]="60"
+              ></ngx-datatable-column>
+              <ngx-datatable-column
+                name="Nombre"
+                prop="name"
+                [width]="150"
+              ></ngx-datatable-column>
+              <ngx-datatable-column name="Acciones" [width]="70">
+                <ng-template
+                  let-row="row"
+                  let-name="value"
+                  ngx-datatable-cell-template
+                >
+                  <a (click)="setCityId(row.cityId); deleteAlert(cityId)"
+                    ><i
+                      class="ft-trash-2 btn bg-light-danger cursor-pointer mr-1"
+                    ></i
+                  ></a>
+                  <a (click)="update(row.cityId, row.name)">
+                    <i
+                      class="ft-edit-2 btn bg-light-danger cursor-pointer mr-1"
+                    ></i>
+                  </a>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="col">
+  <button
+    type="button"
+    class="btn btn-secondary btn-lg btn-block"
+    (click)="add()"
+  >
+    Añadir ciudad
+  </button>
+</div>

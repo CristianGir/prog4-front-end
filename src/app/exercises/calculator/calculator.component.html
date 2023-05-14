@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <br />
+    <div class="container text-center">
+      <div class="row align-items-start">
+        <input
+          type="text"
+          id="result"
+          class="form-control mb-5"
+          value="{{ result }}"
+          disabled
+        />
+        <div class="col">
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg btn-block"
+            (click)="display('7')"
+          >
+            7</button
+          ><br />
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg btn-block"
+            (click)="display('4')"
+          >
+            4</button
+          ><br />
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg btn-block"
+            (click)="display('1')"
+          >
+            1</button
+          ><br />
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg btn-block"
+            (click)="display('0')"
+          >
+            0
+          </button>
+        </div>
+        <div class="col">
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg btn-block"
+            (click)="display('8')"
+          >
+            8</button
+          ><br />
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg btn-block"
+            (click)="display('5')"
+          >
+            5</button
+          ><br />
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg btn-block"
+            (click)="display('2')"
+          >
+            2
+          </button>
+          <br />
+          <button
+            type="button"
+            class="btn btn-dark btn-lg btn-block"
+            (click)="display('.')"
+          >
+            .
+          </button>
+          <br />
+        </div>
+        <div class="col">
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg btn-block"
+            (click)="display('9')"
+          >
+            9</button
+          ><br />
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg btn-block"
+            (click)="display('6')"
+          >
+            6</button
+          ><br />
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg btn-block"
+            (click)="display('3')"
+          >
+            3
+          </button>
+          <br />
+          <button
+            type="button"
+            class="btn btn-dark btn-lg btn-block"
+            (click)="display('/')"
+          >
+            /
+          </button>
+        </div>
+        <div class="col">
+          <button
+            type="button"
+            class="btn btn-dark btn-lg btn-block"
+            (click)="display('+')"
+          >
+            +</button
+          ><br />
+          <button
+            type="button"
+            class="btn btn-dark btn-lg btn-block"
+            (click)="display('-')"
+          >
+            -</button
+          ><br />
+          <button
+            type="button"
+            class="btn btn-dark btn-lg btn-block"
+            (click)="display('*')"
+          >
+            *</button
+          ><br />
+          <button
+            type="button"
+            class="btn btn-dark btn-lg btn-block"
+            (click)="calculate()"
+          >
+            =</button
+          ><br />
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn btn-warning btn-lg btn-block"
+        (click)="clear()"
+      >
+        C
+      </button>
+    </div>
+  </body>
+</html>
