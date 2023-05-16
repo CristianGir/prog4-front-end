@@ -5,10 +5,9 @@ import { GenericResponse } from "../interfaces/interfaces";
 import { environment } from "environments/environment";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class DijkstraService {
-
   private env: any = environment;
 
   constructor(private client: HttpClient) {}
@@ -21,9 +20,17 @@ export class DijkstraService {
       .set("Authorization", token);
     return headers;
   }
-  public dijkstra(startId: string, endId: string, cities: any, edges: any): Observable<GenericResponse> {
-    return this.client.post<GenericResponse>(this.env.baseUrl + `/shortest-path/${startId}/${endId}`, cities, {
-      headers: this.getHeadersRESTToken(),
-    });
-  }
+  public dijkstra(
+    origin: number,
+    destiny: number,
+    data: any // Cambiar los parámetros edges y cities a data
+  ): Observable<GenericResponse> {
+    return this.client.post<GenericResponse>(
+      this.env.baseUrl + `/dijkstra/${origin}/${destiny}`,
+      data, // Pasar el objeto data en el cuerpo de la solicitud POST
+      {
+        headers: this.getHeadersRESTToken(),
+      }
+    );
+  }  
 }

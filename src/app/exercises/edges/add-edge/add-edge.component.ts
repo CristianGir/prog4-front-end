@@ -12,7 +12,9 @@ import { tap } from "rxjs/operators";
 })
 export class AddEdgeComponent implements OnInit {
   cities: any = [];
-  edgeId: string;
+  countOrigin: number;
+  countDestiny: number;
+  edgeId: String;
   origin: any;
   weight: number;
   destiny: any;
@@ -34,13 +36,21 @@ export class AddEdgeComponent implements OnInit {
     );
   }
   getCity(originId: string, destinyId: string) {
+    let countOrigin = 1;
+    let countDestiny = 1;
     for (let city of this.cities) {
       if (originId === city.cityId) {
         this.origin = city;
+        this.countOrigin = countOrigin;
       }
+      countOrigin++;
+    }
+    for (let city of this.cities) {
       if (destinyId === city.cityId) {
         this.destiny = city;
+        this.countDestiny = countDestiny;
       }
+      countDestiny++;
     }
   }
   ngOnInit(): void {}
@@ -63,14 +73,16 @@ export class AddEdgeComponent implements OnInit {
               const edges = response.data;
               const existingEdge = edges.find(
                 (edge) =>
-                  edge.origin.cityId === this.origin.cityId &&
-                  edge.destiny.cityId === this.destiny.cityId
+                  (edge.origin.cityId === this.origin.cityId &&
+                    edge.destiny.cityId === this.destiny.cityId) ||
+                  (edge.origin.cityId === this.destiny.cityId &&
+                    edge.destiny.cityId === this.origin.cityId)
               );
               if (existingEdge) {
                 // Ya existe una arista con el mismo origen y destino
                 Swal.fire({
                   title: "Error",
-                  text: "Ya existe una arista con el mismo origen y destino",
+                  text: "No puede existir más de una arista con la misma ruta",
                   icon: "error",
                   confirmButtonText: "Volver",
                 });
@@ -78,9 +90,9 @@ export class AddEdgeComponent implements OnInit {
                 // No existe una arista con el mismo origen y destino, se puede agregar la nueva arista
                 const edge = {
                   edgeId: this.edgeId,
-                  origin: this.origin,
+                  origin: this.countOrigin,
                   weight: this.weight,
-                  destiny: this.destiny,
+                  destiny: this.countDestiny,
                 };
                 this.edgeService
                   .addEdge(edge)
@@ -133,8 +145,6 @@ export class AddEdgeComponent implements OnInit {
       });
     }
   }
-  
-  
 
   back() {
     this.router.navigate(["/exercises/edges"]);

@@ -23,6 +23,7 @@ import {
 import { AppRoutingModule } from "./app-routing.module";
 import { SharedModule } from "./shared/shared.module";
 import { AppComponent } from "./app.component";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ContentLayoutComponent } from "./layouts/content/content-layout.component";
 import { FullLayoutComponent } from "./layouts/full/full-layout.component";
 
