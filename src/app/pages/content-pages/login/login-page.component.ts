@@ -1,4 +1,4 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component } from "@angular/core";
 import {
   NgForm,
   UntypedFormGroup,
@@ -6,7 +6,6 @@ import {
   Validators,
 } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
-import { AuthService } from "app/shared/auth/auth.service";
 import { NgxSpinnerService } from "ngx-spinner";
 import { LoginService } from "app/shared/auth/login.service";
 import Swal from "sweetalert2/dist/sweetalert2.js";
@@ -29,21 +28,11 @@ export class LoginPageComponent {
   constructor(
     private router: Router,
     private loginService: LoginService,
-    private spinner: NgxSpinnerService,
-    private route: ActivatedRoute
+    private spinner: NgxSpinnerService
   ) {}
 
   get lf() {
     return this.loginForm.controls;
-  }
-  invalidData() {
-    Swal.fire({
-      title: "Error",
-      text: "Dato inválidos",
-      type: "error",
-      icon: "error",
-      confirmButtonText: "Cancelar",
-    });
   }
   // On submit button click
   onSubmit() {
@@ -66,13 +55,20 @@ export class LoginPageComponent {
           this.spinner.hide();
           this.router.navigate(["/page"]);
         } else {
-          this.invalidData();
+          Swal.fire({
+            title: "Error",
+            text: "Dato inválidos",
+            icon: "error",
+            confirmButtonText: "Cancelar",
+          });
           this.spinner.hide();
         }
       },
       (error) => {
-        Swal.fire({text:"Error en el servidor. Comuníquese con el administrador.",
-      icon:"warning"});
+        Swal.fire({
+          text: "Error en el servidor. Comuníquese con el administrador.",
+          icon: "warning",
+        });
         this.spinner.hide();
       }
     );
