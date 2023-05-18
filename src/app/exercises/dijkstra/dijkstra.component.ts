@@ -13,8 +13,8 @@ export class DijkstraComponent implements OnInit {
   lists: any = [];
   edges: any = [];
   cities: any = [];
-  startId: string;
-  endId: string;
+  startId: number;
+  endId: number;
 
   constructor(
     private dijkstraService: DijkstraService,
@@ -63,8 +63,8 @@ export class DijkstraComponent implements OnInit {
     const data = { cities: this.cities, edges: this.edges }; // Crear objeto con las propiedades cities y edges
     this.dijkstraService
       .dijkstra(
-        this.getCityId(this.startId),
-        this.getCityId(this.endId),
+        this.startId,
+        this.endId,
         data // Pasar el objeto data en lugar de this.cities y this.edges
       )
       .subscribe(
@@ -86,5 +86,5 @@ export class DijkstraComponent implements OnInit {
           });
         }
       );
-  }  
+  }
 }

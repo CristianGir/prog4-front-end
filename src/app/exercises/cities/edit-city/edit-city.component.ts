@@ -9,7 +9,7 @@ import Swal from "sweetalert2/dist/sweetalert2.js";
   styleUrls: ["./edit-city.component.scss"],
 })
 export class EditCityComponent implements OnInit {
-  cityId: string;
+  cityId: number;
   name: string;
   constructor(
     private router: Router,
@@ -18,7 +18,7 @@ export class EditCityComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.cityId = this.route.snapshot.queryParamMap.get("cityId");
+    this.cityId = parseInt(this.route.snapshot.queryParamMap.get("cityId"));
     this.name = this.route.snapshot.queryParamMap.get("name");
   }
 
